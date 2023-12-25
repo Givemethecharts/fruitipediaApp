@@ -1,0 +1,51 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=\, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/static/styles/styles.css"/>
+    <title>Fruitipedia</title>
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <!-- Navigation -->
+        <a id="logo" href="">
+            <img id="logo-img" src="/static/images/logo.png" alt="logo"/>
+        </a>
+
+        <nav>
+            <div class="nav-items">
+                <a href="http://127.0.0.1:8000/create-category">Create Category</a>
+                <a href="http://127.0.0.1:8000/create-fruit">Create Fruit</a>
+                <a href="http://127.0.0.1:8000/dashboard">Dashboard</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Add Fruit Form -->
+        <section id="create">
+            <div class="form">
+                <h2>Add Fruit</h2>
+                <form class="create-form" method="post" action="{% url 'create fruit' %}">
+                    {{ form }}
+
+                    <button type="submit">Add Fruit</button>
+                    {% csrf_token %}
+                </form>
+            </div>
+        </section>
+
+    </main>
+</div>
+<!-- footer -->
+<footer>
+    <p>@Fruitipedia - SoftUni Team 2023. All rights reserved.</p>
+</footer>
+</body>
+</html>

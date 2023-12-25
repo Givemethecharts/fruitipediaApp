@@ -1,0 +1,68 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=\, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/static/styles/styles.css"/>
+    <title>Fruitipedia</title>
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <!-- Navigation -->
+        <a id="logo" href="">
+            <img id="logo-img" src="/static/images/logo.png" alt="logo"/>
+        </a>
+
+        <nav>
+            <div class="nav-items">
+                <a href="http://127.0.0.1:8000/create-category">Create Category</a>
+                <a href="http://127.0.0.1:8000/create-fruit">Create Fruit</a>
+                <a href="http://127.0.0.1:8000/dashboard">Dashboard</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Fruit Details -->
+        <section id="details">
+            <div id="details-wrapper">
+                <!-- fruit image -->
+                <img id="details-img" src="{{ fruit.Image_url }}" alt="example1"/>
+                <!-- fruit name -->
+                <p id="details-title">Name: {{ fruit.name }}</p>
+                <div id="info-wrapper">
+                    <div id="details-description">
+                        <p> Category: {{ fruit.category }}</p>
+                        <!-- fruit description -->
+                        <p>
+                            Description: {{ fruit.description }}
+                        </p>
+                        <!-- fruit nutrition -->
+                        <p id="nutrition">Nutrition</p>
+                        <!-- fruit nutrition details -->
+                        <p id="details-nutrition">
+                            {{ fruit.nutrition }}
+                        </p>
+                    </div>
+                    <!--Edit and Delete buttons -->
+                    <div id="action-buttons">
+                        <a href="{% url 'edit fruit' fruit_id=fruit.pk %}" id="edit-btn">Edit</a>
+                        <a href="{% url 'delete fruit' fruit_id=fruit.pk %}" id="delete-btn">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+<!-- footer -->
+<footer>
+    <p>@Fruitipedia - SoftUni Team 2023. All rights reserved.</p>
+</footer>
+</body>
+</html>
